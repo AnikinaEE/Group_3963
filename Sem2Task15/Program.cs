@@ -7,28 +7,33 @@
 Console.WriteLine("Введите число, обозначающее день недели (от 1 до 7): ");
 int number = int.Parse(Console.ReadLine()?? "0");
 
-if ((number > 0) && (number < 6))
+// if ((number > 0) && (number < 6))
+// {
+//     Console.WriteLine("Увы... это рабочий день");
+// }
+// else
+// {
+//     Console.WriteLine("ДА, это выходной день");
+// }
+
+// Попробуем воспользоваться коллекцией Dictionary(k,v) и наполним его значениями
+Dictionary<int, string> week = new Dictionary<int, string>
 {
-    Console.WriteLine("Увы... это рабочий день");
+    [1] = "рабочий день",
+    [2] = "рабочий день",
+    [3] = "рабочий день",
+    [4] = "рабочий день",
+    [5] = "рабочий день",
+    [6] = "выходной день",
+    [7] = "выходной день",                 
+};
+
+// Делаем проверку, какой день недели 
+if (week.ContainsKey(number))
+{
+    Console.WriteLine(week[number]);
 }
 else
 {
-    Console.WriteLine("ДА, это выходной день");
+    Console.WriteLine("Это не день недели, введите число еще раз");
 }
-
-// // Попробуем воспользоваться коллекцией Dictionary(k,v)
-// Dictionary<int, string> week = new Dictionary<int, string>();
-
-// // Наполним словарь значениями, соотвествующими цифре и дня недели
-// var week = new Dictionary<int, string>()
-// {
-//     [1] = "рабочий день",
-//     [2] = "рабочий день",
-//     [3] = "рабочий день",
-//     [4] = "рабочий день",
-//     [5] = "рабочий день",
-//     [6] = "выходной день",
-//     [7] = "выходной день",                 
-// };
-
-
